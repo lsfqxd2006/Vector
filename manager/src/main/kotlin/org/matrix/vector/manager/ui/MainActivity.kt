@@ -13,6 +13,7 @@ import org.matrix.vector.manager.ui.theme.LocalizedContent
 import org.matrix.vector.manager.ui.theme.LocalizedOverlay
 import org.matrix.vector.manager.ui.theme.VectorTheme
 import org.matrix.vector.ui.LocalDialogLocalizer
+import org.matrix.vector.ui.watchSecondaryButton
 
 /**
  * The only activity.
@@ -61,6 +62,9 @@ class MainActivity : ComponentActivity() {
         // platform keeps answering with the intent this activity was *created* with, so a rotation
         // offers a destination the reader may have left behind hours ago.
         DeepLink.offerFromCreate(intent)
+
+        // What lets a row tell a right click from a tap.
+        watchSecondaryButton()
 
         setContent {
             LocalizedContent {
